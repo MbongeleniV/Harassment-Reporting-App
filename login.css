@@ -1,0 +1,152 @@
+.login-container{justify-self: center;
+                 border: 1px solid;
+                 padding:30px;
+                 border-radius: 20px ;
+                 box-shadow: -5px 5px 10px;
+                 background-color: rgba(0, 0, 255, 0.279);
+                align-items: center;
+}
+
+@media (max-width:768px ){
+      .login-container{ max-width: 300px;
+                        width:70%;
+          
+                    
+
+      }
+
+}
+
+.input input{border:1px solid;
+            border-radius: 25px;
+            padding:10px;
+            width:300px;
+            max-width: 90%;
+            margin: 5px;
+}
+
+.logsignBtn button{display:block;
+                   justify-self:center;
+                   padding: 10px;
+                   margin:25px;
+                   width:250px;
+                   border-radius: 10px;
+                   background-color: rgba(4, 0, 255, 0.286);
+                   text-transform: uppercase;
+                    transition: 0.6s ease-in-out ;
+}
+.logsignBtn button:hover{
+                       
+                         transform:scale(1.1);
+                         cursor:pointer;
+                         border:2px solid white;
+                        
+
+                         
+}
+.logsignBtn button:active{color:rgb(157, 255, 0);
+                          border:2px solid rgb(95, 20, 234);
+                         
+                         
+                     
+}
+
+.forgotLink a{display: block;
+            justify-self: center;
+             text-decoration: none;
+             color: black;
+
+}
+
+.forgotLink a:hover{text-decoration: underline;
+                   color:white;
+
+}
+.heading h1{text-align: center;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+body{background-color: rgba(24, 73, 207, 0.199);
+
+
+}
+
+img{
+          height: auto;
+          left:0px;
+          right: 0px;
+          width:auto;
+          
+
+           height: 150px;
+         
+         
+          justify-self:start
+}
+
+footer{text-align: center;
+        border:rgb(86, 79, 152) 2px solid;
+        border-radius:12px;
+        padding:7px;
+        margin:40px;
+        background-color:rgba(93, 20, 220, 0.067);
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        position:relative;
+        background-image: linear-gradient(rgba(55, 55, 212, 0.264), rgba(201, 44, 1, 0.051)) ,url("foooterim.webp");
+        /*background-repeat: no-repeat;*/
+        background-size:1500px;
+
+}
+header {border:1px solid blueviolet ;
+       /*font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+       box-shadow: 3px 4px 5px ;
+       padding: 0px;
+       margin-top: 10px;
+       max-height: 40px;
+       border-radius: 3px;
+       justify-items:flex-start;
+       flex-wrap: wrap;
+       text-decoration:none;
+      
+       
+}
+header a{
+       /*font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+       box-shadow: 1px 1px 2px ;
+       padding: 0px;
+       margin-top: 10px;
+       max-height: 40px;
+       border-radius: 3px;
+       justify-items:flex-start;
+       flex-wrap: wrap;
+       text-decoration:none;
+       color:rgba(0, 0, 0, 0.641)
+      
+       
+}
+
+
+
+
+@media (max-width: 1200px) {
+       header {
+          
+               max-height: 90px;
+               
+    }
+}
+
+label{position:absolute;
+       margin-left: 40px;
+       margin-top: 15px;
+
+
+
+}
+label:focus{ margin-top: -15pxpx;
+
+
+
+}

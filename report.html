@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harassment Reporting App</title>
+    <link rel="stylesheet" href="style.css">
+      <link rel="icon" type="image" href="loogo.png" >
+</head>
+<body>
+
+    <div class="stick" >
+<header>
+        <p>contact| Tel: 012 0300 200 | Email: reportharassment@netlink.co.za |<a href=""> FaceBook : Net Link </a> |<a href=""> X : Net_Link </a> |<a href=""> Instagram :Net_Link</a>  |<a href=""> Linkedin : Net Link </a>   </p> 
+
+</header>
+
+
+<div class="hamburger" id="hamburger"><!--form chat-->
+    ☰
+</div>
+
+<div class="login-icon">
+<!--<a href="login.html"><img src="arrow_drop_down_100dp_E_FILL0_wght400_GRAD0_opsz48.png" title="Login"></a>-->
+<!--DROP NAV-->
+  <div class="navContainer">
+       <img src="arrow_drop_down_100dp_E_FILL0_wght400_GRAD0_opsz48.png"  onclick="menu.hidden^=1"   >
+    <div class="navigation">
+  
+    <!-- <button onclick="menu.hidden^=1">Click</button>-->
+
+     <ul id="menu" hidden >
+     <li><a href="login.html">Login</a></li>
+     <li><a href="signup.html">Sign Up</a></li>
+     <li><a href="profile.html">Your Profile</a></li>
+     <li><a href="">product</a></li>
+     <li><a href="">comments</a> </li>
+     </ul>
+     
+    </div>
+</div>
+<!--END OF DROP NAV-->
+</div>
+
+
+    <div class="logo22">
+ <a href="index.html"> <img src="loogo.png"></a>
+  </div>
+<div class="heading">
+<p>Harassment Reporting </p>
+</div>
+
+
+<nav class="navbar" id="navbar"> 
+<ul>
+  
+<li><a href="index.html">Home</a></li> 
+<li><a href="report.html">Report An Issue</a></li> 
+<li><a href="knowrights.html">Know Your Rights</a></li> 
+<li><a href="how.html">How It Works</a></li> 
+<li><a href="privacy.html">Privacy And Confidentiality</a></li> 
+<li><a href="support.html">Support And Resources</a></li> 
+
+<li><a href="faq.html">FAQS</a></li> 
+<li><a href="terms.html">Terms And Conditions</a></li> 
+</ul>
+</nav> 
+</div>
+<h2>Report Harrasment!! Asap</h2>
+<div class="megaphoneimage">
+    
+<img src="megaphone.png">
+</div>
+
+
+
+<div class="formandyoutubecont">
+
+
+
+
+  <div class="youtube1">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/U2SXWEtmMDM?si=b_7CpSyCVgG7WF3p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
+<div class="formm">
+<h2 class="happlication">Your Report Is Safe With Us</h2> 
+
+<form action="index.php" method="post">
+ 
+    <label for="device type">Type of mistreatment:</label>
+
+    <select id="device type">
+    <option value="Laptop">Harassment</option value>
+    <option value="Smart Phone">Discrimination</option value>   
+    <option value="Tablet">Unfair dismissal</option value> 
+    <option value="Tablet">Unsafe working Conditions</option value> 
+    <option value="Tablet">Bullying</option value> 
+        
+    </select><br><br><br>
+    <label for="description">Description of your issue</label>
+    <textarea id="description"  rows="5" cols="4"> </textarea>  <br>
+
+    <label for="date">Date of occurence</label>
+    <input type="date"><br>
+
+    <label for="companyname"> Company name:</label>
+    <input type="text"><br>
+    <p>Evidence Upload</p>
+
+    <label for="evidence">Documents</label>
+    <input type="file"><br>
+
+    <label for="evidence">Images</label>
+    <input type="file"><br>
+
+    <label for="evidence">Other form of evidence</label>
+    <input type="file"><br>
+
+    <div class="checkbox">
+    <label>Submit Anonymously</label>
+    <input type="checkbox">
+    <label>Submit with contact details</label>
+    <input type="checkbox">
+    </div>
+
+
+    <div class="buttons">
+   <input type="submit"><br><br>
+   <input type="reset"><br>
+   </div>
+
+    
+</form>
+</div>
+</div>
+
+<footer>
+MBONGELENI IT SOLUTIONS PTY LTD<br>
+&copyCopyrights Reserved (2026)<br><br>
+Created by NET LINK inc
+
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const navbar = document.querySelector(".navbar");
+
+    hamburger.addEventListener("click", function () {
+        navbar.classList.toggle("show");
+        hamburger.textContent = navbar.classList.contains("show") ? "✖" : "☰";
+    });
+});
+</script>
+
+
+</body>
+</html>

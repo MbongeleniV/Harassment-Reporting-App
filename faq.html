@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harassment Reporting App</title>
+    <link rel="stylesheet" href="style.css">
+      <link rel="icon" type="image" href="loogo.png" >
+</head>
+<body>
+
+    <div class="stick" >
+<header >
+    <p>contact| Tel: 012 0300 200 | Email: reportharassment@netlink.co.za |<a href=""> FaceBook : Net Link </a> |<a href=""> X : Net_Link </a> |<a href=""> Instagram :Net_Link</a>  |<a href=""> Linkedin : Net Link </a>   </p> 
+</header>
+
+
+<div class="hamburger" id="hamburger"><!--form chat-->
+    ☰
+</div>
+
+<div class="login-icon">
+<!--<a href="login.html"><img src="arrow_drop_down_100dp_E_FILL0_wght400_GRAD0_opsz48.png" title="Login"></a>-->
+<!--DROP NAV-->
+  <div class="navContainer">
+       <img src="arrow_drop_down_100dp_E_FILL0_wght400_GRAD0_opsz48.png"  onclick="menu.hidden^=1"   >
+    <div class="navigation">
+  
+    <!-- <button onclick="menu.hidden^=1">Click</button>-->
+
+     <ul id="menu" hidden >
+     <li><a href="login.html">Login</a></li>
+     <li><a href="signup.html">Sign Up</a></li>
+     <li><a href="profile.html">Your Profile</a></li>
+     <li><a href="">product</a></li>
+     <li><a href="">comments</a> </li>
+     </ul>
+     
+    </div>
+</div>
+<!--END OF DROP NAV-->
+</div>
+
+
+  <div class="logo22">
+ <a href="index.html"> <img src="loogo.png"></a>
+  </div>
+<div class="heading">
+<p>Harassment Reporting </p>
+</div>
+
+
+<nav class="navbar"id="navbar"> 
+<ul>
+  
+<li><a href="index.html">Home</a></li> 
+<li><a href="report.html">Report An Issue</a></li> 
+<li><a href="knowrights.html">Know Your Rights</a></li> 
+<li><a href="how.html">How It Works</a></li> 
+<li><a href="privacy.html">Privacy And Confidentiality</a></li> 
+<li><a href="support.html">Support And Resources</a></li> 
+
+<li><a href="faq.html">FAQS</a></li> 
+<li><a href="terms.html">Terms And Conditions</a></li> 
+</ul>
+</nav> 
+</div>
+
+<div class="faqhero">
+<img src="fhero.jpeg">
+</div>
+
+<div class="faq-container">
+<h2>Frequently asked questions:</h2>
+<details>
+    <summary>Can my employer see my report?</summary>
+      <div class="reviews">
+    <p>No</p>
+    </div>
+</details>
+<p>
+
+<details>
+    <summary>Is this really anonymous?</summary>
+      <div class="reviews">
+    <p>Yes</p>
+    </div>
+</details>
+
+<details>
+    <summary>What if I don't have evidence?</summary>
+     <div class="reviews">
+    <p>You can still lodge your complaint for investigation.</p>
+    </div>
+</details>
+
+<details>
+    <summary>Will I be contacted?</summary>
+       <div class="reviews">
+    <p>Yes not unless you are a whistleblower.</p>
+    </div>
+</details>
+
+<details>
+    <summary>Is this legally binding?</summary>
+     <div class="reviews">
+    <p>Yes</p>
+    </div>
+</details>
+</div>
+
+<footer>
+MBONGELENI IT SOLUTIONS PTY LTD<br>
+&copyCopyrights Reserved (2026)<br><br>
+Created by NET LINK inc
+
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const navbar = document.querySelector(".navbar");
+
+    hamburger.addEventListener("click", function () {
+        navbar.classList.toggle("show");
+        hamburger.textContent = navbar.classList.contains("show") ? "✖" : "☰";
+    });
+});
+</script>
+
+</body>
+</html>

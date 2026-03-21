@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harassment Reporting App</title>
+    <link rel="stylesheet" href="style.css">
+      <link rel="icon" type="image" href="loogo.png" >
+</head>
+<body>
+
+    <div class="stick" >
+<header>
+        <p>contact| Tel: 012 0300 200 | Email: reportharassment@netlink.co.za |<a href=""> FaceBook : Net Link </a> |<a href=""> X : Net_Link </a> |<a href=""> Instagram :Net_Link</a>  |<a href=""> Linkedin : Net Link </a>   </p> 
+
+</header>
+
+
+<div class="hamburger" id="hamburger"><!--form chat-->
+    ☰
+</div>
+
+<div class="login-icon">
+<!--<a href="login.html"><img src="arrow_drop_down_100dp_E_FILL0_wght400_GRAD0_opsz48.png" title="Login"></a>-->
+<!--DROP NAV-->
+  <div class="navContainer">
+       <img src="arrow_drop_down_100dp_E_FILL0_wght400_GRAD0_opsz48.png"  onclick="menu.hidden^=1"   >
+    <div class="navigation">
+  
+    <!-- <button onclick="menu.hidden^=1">Click</button>-->
+
+     <ul id="menu" hidden >
+     <li><a href="login.html">Login</a></li>
+     <li><a href="signup.html">Sign Up</a></li>
+     <li><a href="profile.html">Your Profile</a></li>
+     <li><a href="">product</a></li>
+     <li><a href="">comments</a> </li>
+     </ul>
+     
+    </div>
+</div>
+<!--END OF DROP NAV-->
+</div>
+
+
+    <div class="logo22">
+ <a href="index.html"> <img src="loogo.png"></a>
+  </div>
+<div class="heading">
+<p>Harassment Reporting </p>
+</div>
+
+
+<nav class="navbar" id="navbar"> 
+<ul>
+  
+<li><a href="index.html">Home</a></li> 
+<li><a href="report.html">Report An Issue</a></li> 
+<li><a href="knowrights.html">Know Your Rights</a></li> 
+<li><a href="how.html">How It Works</a></li> 
+<li><a href="privacy.html">Privacy And Confidentiality</a></li> 
+<li><a href="support.html">Support And Resources</a></li> 
+
+<li><a href="faq.html">FAQS</a></li> 
+<li><a href="terms.html">Terms And Conditions</a></li> 
+</ul>
+</nav> 
+</div>
+
+<div class="terms">
+<h2>Disclaimer:</h2>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit quibusdam, eaque obcaecati iste expedita accusamus quam vel quisquam ducimus ex minus exercitationem dolores perferendis quae voluptatum distinctio incidunt? Quas, repudiandae.
+   Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, repellendus consequuntur explicabo odio laborum consectetur adipisci autem, totam perspiciatis, tenetur rerum minus perferendis nulla quasi aperiam! Blanditiis soluta iure magni? 
+</p>
+
+<h2>Limits of responsibility</h2>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eaque vero exercitationem modi eveniet qui accusantium corrupti facere. Repudiandae natus porro modi fuga libero ut dicta aliquid sed, omnis quidem!   
+</p>
+
+<h2>User obligations</h2>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, incidunt maxime? Voluptas dicta repellat dolores hic soluta quam in animi nemo, similique beatae est consequatur nesciunt? Non odio dicta assumenda!</p>
+<h2>No retaliation guarantee </h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio nulla doloremque asperiores consequatur et blanditiis ea ducimus corporis. Cum quis tempore provident inventore, expedita voluptate dicta accusantium facilis optio quas?</p>
+
+<label>I have read and understood the Terms and Conditions</label>
+</div>
+<input type="checkbox">
+
+<footer>
+MBONGELENI IT SOLUTIONS PTY LTD<br>
+&copyCopyrights Reserved (2026)<br><br>
+Created by NET LINK inc
+
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const navbar = document.querySelector(".navbar");
+
+    hamburger.addEventListener("click", function () {
+        navbar.classList.toggle("show");
+        hamburger.textContent = navbar.classList.contains("show") ? "✖" : "☰";
+    });
+});
+</script>
+</body>
+</html>
