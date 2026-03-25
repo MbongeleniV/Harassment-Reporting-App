@@ -724,7 +724,7 @@ button{justify-content: center;
      
 }
 
-.twobtn ,button{padding:10px ;
+.twobtn ,button{padding:7.5px ;
                 margin:30px;
                 
                cursor:pointer;
@@ -1275,12 +1275,12 @@ h2{color:rgba(10, 10, 10, 0.492);
                          transform: translateY(-5px);
 
 }
-.terms p{font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-
-
+.terms p{font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-left:20px;
+         margin-right:20px;
 }
-.intro p{margin-left:40px;
-         margin-right:40px;
+.intro p{margin-left:20px;
+         margin-right:20px;
 
 
 }
