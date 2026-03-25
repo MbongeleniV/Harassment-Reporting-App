@@ -64,11 +64,6 @@
        
     }
    
-
-
-
-
-
     .navbar ul li {
         display: block;
         margin: 12px 0;
@@ -97,13 +92,6 @@
     }
 }
 
-
-
-
-
-
-
-
 .navbar ul li{display: inline-block;
               margin-left: 0px;
               margin-right:0px;
@@ -118,11 +106,6 @@
                   transform: translateY(-6px);
                
 }
-
-
-
-
-
 
 .navbar a{/*color:rgb(39, 26, 182);*/
     color: white;
@@ -149,9 +132,6 @@
                   
                
 }
-
-
-
 
 .firstlogo img{/*position: absolute;
     height: 150px;
@@ -203,13 +183,10 @@
        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
        color:aliceblue;
        transition:0.5s ease-in;
-   
        
  }
 
 .navigation li a{color:white
-
-
 
 }
 
@@ -223,8 +200,7 @@
              backdrop-filter: blur(10px);
              display: block;
              justify-items:end;
-          
-            
+                    
 }
 
 
@@ -247,9 +223,6 @@
  .navigation a{  text-decoration: none;
  }
  
-                
-
-  
   .navigation li:hover{background-color: rgba(60, 48, 223, 0.377);
                        border: 1px solid black;
                        text-shadow: 1px 1px 3px;
@@ -577,10 +550,7 @@ h{font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida S
       justify-self: center;
       /*margin-left: 700px;*/
       background-color: rgba(139, 139, 153, 0.467);
-    
-
-      
-     
+  
 }
 
 
@@ -590,14 +560,10 @@ h{font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida S
                       align-items: center;
                       gap:20px;
                       flex-wrap: wrap;
-                     
-
-
 }
 .youtube1 iframe{width: 650px;
                  height:700px;
                  margin-top: 50px;
-
 
 }
 
@@ -605,8 +571,6 @@ h{font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida S
     .youtube1 iframe {max-width: 650px;
                width: 100%;
               
-               
-
     }
 }
 
@@ -659,10 +623,6 @@ h{font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida S
     }
 }
 
-
-
-
-
 footer{text-align: center;
         border:rgb(86, 79, 152) 2px solid;
         border-radius:12px;
@@ -698,10 +658,7 @@ body{
                 overflow-y: auto;/* enable vertical scrolling */
                 overflow-x: hidden; /* prevent horizontal scroll */
                 justify-content: center;
-                width: 1300px;
-
-              
-                
+                width: 1300px;            
                 
   }
   @media ( min-width:0px)  {
@@ -710,15 +667,10 @@ body{
                    width:70%;
                    
                    /* width: 360px;*/
-            
-
-            
+         
     }
 }
 
-
-
- 
 
 details {
     margin-bottom: 15px;
@@ -778,7 +730,6 @@ button{justify-content: center;
                cursor:pointer;
                
 
-
 }
 .twobtn ,button:hover{transform: translateY(-5px);
                       
@@ -786,7 +737,6 @@ button{justify-content: center;
                       
                     
 }
-
 
 
 h2{color:rgba(10, 10, 10, 0.492);
@@ -801,9 +751,7 @@ h2{color:rgba(10, 10, 10, 0.492);
                
  
                box-sizing: border-box;
- 
-               
-    
+   
                 display:flex;
                 justify-content:space-evenly;
                  flex-wrap: wrap;
@@ -856,8 +804,6 @@ h2{color:rgba(10, 10, 10, 0.492);
 }
 
 
-
-
 .heading p{text-align: center;
            font-size: 35px;
            color:white;
@@ -904,14 +850,9 @@ h2{color:rgba(10, 10, 10, 0.492);
 .card-content{margin: 0px;
   padding:0px; 
   box-sizing: border-box;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-    
-    
-    
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;   
     padding:16px;
               
-
-
 }
 
 .card-content h3{margin: 0px;
@@ -923,28 +864,20 @@ h2{color:rgba(10, 10, 10, 0.492);
     font-size:28px ;
                  margin-bottom:8px ;
 
-
 }
 .card-content p{margin: 0px;
   padding:0px; 
   box-sizing: border-box;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
     
-    
-    
-    color:rgb(24, 23, 23)
-
-
+    color:rgb(24, 23, 23);
 }
 
 .card-content .btn{margin: 0px;
   padding:0px; 
   box-sizing: border-box;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-    
-    
-    
-    
+
     display:inline-block;
                    padding:8px 16px;
                    background-color: black;
@@ -967,20 +900,15 @@ h2{color:rgba(10, 10, 10, 0.492);
         url("complaintform.wbp");
                  padding-top: 100px;
                  padding-bottom: 100px;
-                
-                  
+                             
 }
 .imagecollage img{width:300px;
-                  height:200px;
-                 
-               
+                  height:200px;           
                  
 }
 
 .image h1{font-size:24px;
        
-
-
 }
 .image {display: block;
         border:1px solid rgba(137, 43, 226, 0.651);
@@ -1022,16 +950,12 @@ h2{color:rgba(10, 10, 10, 0.492);
               cursor:pointer;
               transition: 2s ease-in;
              
-              
-
 }
 .image img:hover{/*transform:skew(5deg);*/
                 /* transition: 1s ease-in-out;
                border-radius: 15%;
                animation-duration: 3s;
                 width: 90%;*/
-              
-
 }
 /*second image collage */
 .imagecollage2 {display:flex;
@@ -1052,15 +976,11 @@ h2{color:rgba(10, 10, 10, 0.492);
 }
 .imagecollage2 img{width:300px;
                   height:200px;
-                 
-               
-                 
+                                 
 }
 
 .image2 h1{font-size:24px;
        
-
-
 }
 .image2 {display: block;
         border:1px solid rgba(137, 43, 226, 0.651);
@@ -1093,12 +1013,7 @@ h2{color:rgba(10, 10, 10, 0.492);
               cursor:pointer;
               transition: 1s ease-in;
               
-              
-
 }
-
-
-
 
 /*end of the second image collage*/
 @media (max-width: 768px) {
@@ -1158,8 +1073,6 @@ h2{color:rgba(10, 10, 10, 0.492);
 
 }
 
-
-
 .list ul {margin-left: 0px;
             line-height: 29px;
 
@@ -1209,8 +1122,7 @@ h2{color:rgba(10, 10, 10, 0.492);
                 display: block;
                 margin: auto;
                 border-radius: 100px;
-              
-                
+                            
 }
 
 .caseDetails{border:2px dotted rgba(0, 0, 255, 0.829);
@@ -1227,8 +1139,6 @@ h2{color:rgba(10, 10, 10, 0.492);
                 margin: auto;
                 border-radius: 100px;
            
-
-
 }
 
 .companyDetails{border:2px dotted rgba(0, 0, 255, 0.829);
@@ -1243,7 +1153,6 @@ h2{color:rgba(10, 10, 10, 0.492);
                 border-radius: 100px;
 
 }
-
 
 .detailsContainer{display: flex;
                   justify-content:space-evenly;
@@ -1277,8 +1186,6 @@ h2{color:rgba(10, 10, 10, 0.492);
        transform:scale(0.9);
        transition: all 2s ease;
 
-
-
 }/*CSS (Initial Hidden State)*/
 .show{opacity:1;
       transform: translateY(0);
@@ -1292,8 +1199,6 @@ h2{color:rgba(10, 10, 10, 0.492);
        transition: all 2.5s ease;
        /*transform:translateX(200px);*/
       
-
-
 }/*CSS (Initial Hidden State)*/
 .show{opacity:1;
       transform: translateY(0);
@@ -1328,22 +1233,18 @@ h2{color:rgba(10, 10, 10, 0.492);
 
 }
 
-
-
 .sectionContainer{justify-items: center;
                 /* transform: translateX(25%);*/
                   flex-wrap: wrap;
                   display: block;
                   margin: auto;
                  width: 100%;
-                 
-                 
+                               
 }
 .section:hover{box-shadow: 5px 6px 6px 5px;
                transform: scale(1);
                cursor:pointer;
-               
-
+            
 }
 .download{justify-self: center;
             
@@ -1357,9 +1258,6 @@ h2{color:rgba(10, 10, 10, 0.492);
                    padding:10px;
                   
                   transition: 1s;
-                
-          
-
 }
 
 .downloadResources p{font-family:'Times New Roman', Times, serif;
@@ -1381,6 +1279,10 @@ h2{color:rgba(10, 10, 10, 0.492);
 
 
 }
+.intro p{margin-left:40px;
+         margin-right:40px;
 
+
+}
 
 
