@@ -1018,7 +1018,7 @@ h2{color:rgba(10, 10, 10, 0.492);
 
 }
 .image:hover {transform: translateY(-10px);
-               transform:scale(1.2);
+               transform:scale(1);
               cursor:pointer;
               transition: 2s ease-in;
              
