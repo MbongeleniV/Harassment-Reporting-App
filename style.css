@@ -468,8 +468,8 @@ button:active{color:blue;
 }
 
 p {/*font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif*/
-
-
+    margin-left: 20px;
+    margin-right: 20px;
 }
 h{font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
  
@@ -948,7 +948,9 @@ h2{color:rgba(10, 10, 10, 0.492);
 .image:hover {transform: translateY(-10px);
                transform:scale(1);
               cursor:pointer;
-              transition: 2s ease-in;
+              border: 1.5px solid black;
+              box-shadow: 1px 1px 4px;
+              transition: 0.5s ease-in;
              
 }
 .image img:hover{/*transform:skew(5deg);*/
@@ -1284,5 +1286,22 @@ h2{color:rgba(10, 10, 10, 0.492);
 
 
 }
+.whatsappLogo img{width: 40px;
+                 
 
+}
 
+.whatsappLogo{justify-self:end;
+               bottom:5px;
+                position: fixed;
+                z-index: 999;
+                  transition: 1s;
+}
+
+.whatsappLogo:hover{cursor: pointer;
+                    transform: scale(1.2);
+                    filter: drop-shadow(2px 2px rgb(23, 23, 23));
+                    transition: 1s;
+                    filter: grayscale(0.5);
+                   
+}
