@@ -437,7 +437,7 @@ header a{ color:black;
 @media (max-width: 1200px) {
        header {
           
-               max-height: 100px;
+               max-height: 110px;
 
     }
 }
