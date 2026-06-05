@@ -23,4 +23,33 @@ else{
 
 });
 
+router.post("/login",  (req,res)=>{
+
+const {Name,Email,Password}=req.body;
+const sql="SELECT * FROM users WHERE Email=?";
+db.query(sql,[Email], async (err,results)=>{
+
+if(err) return res.send("Error");
+
+if(results.length==0){
+
+return res.send("User not Found");
+}
+const user=results[0];
+const isMatch=await bcrypt.compare(Password,user.Password);
+
+if(!isMatch){
+
+    return res.send("Incorrect password");
+}
+
+req.session.user=user;
+res.redirect("report.html");
+
+});
+
+
+
+});
+
 module.exports=router;
