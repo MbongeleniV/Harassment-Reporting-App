@@ -87,7 +87,7 @@
 <div class="formm">
 <h2 class="happlication">Your Report Is Safe With Us</h2> 
 
-<form  action="https://formspree.io/f/mjgpojpv" method="POST" ><!--enctype="multipart/form-data"-->
+<form  action="/reportssubmission" method="POST" ><!--enctype="multipart/form-data"-->
   
       <label for="companyname">Name:</label>
     <input type="text" name="Name"><br>
@@ -100,8 +100,8 @@
 
     <label for="device type">Type of mistreatment:</label>
 
-    <select id="device type" name="Type of Mistreatment" required>
-        <option value="Selected Nothing">--Select an option--</option >
+    <select id="device type" name="MistreatmentType" required>
+        <option value="SelectedNothing">--Select an option--</option >
     <option value="Harassment">Harassment</option >
     <option value="Discrimination">Discrimination</option >   
     <option value="Unfair Dismissal">Unfair dismissal</option > 
@@ -110,13 +110,13 @@
         
     </select><br><br><br>
     <label for="description">Description of your issue</label>
-    <textarea id="description"  rows="5" cols="4"   name="text Description" required> </textarea>  <br>
+    <textarea id="description"  rows="5" cols="4"   name="Description" required> </textarea>  <br>
 
     <label for="date">Date of occurence</label>
-    <input type="date" name="Date" required><br>
+    <input type="date" name="OccurrenceDate" required><br>
 
     <label for="companyname"> Company Name:</label>
-    <input type="text" name="Company Name"><br>
+    <input type="text" name="CompanyName"><br>
     <p>Evidence Upload</p>
 
     <label for="evidence">Documents</label>
