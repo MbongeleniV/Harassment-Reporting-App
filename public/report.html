@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorK Safe Desk</title>
+    <link rel="stylesheet" href="style.css">
+      <link rel="icon" type="image" href="loogo.png" >
+</head>
+<body>
+
+    <div class="stick" >
+<header>
+        <p>Contact| Tel: 012 0300 200 | Email: <a  href="mailto:reportharassment@worksafedesk.co.za">reportharassment@worksafedesk.co.za</a> |<a href=""> FaceBook : WorK Safe Desk </a> |<a href=""> X : WorKSafe Desk </a> |<a href=""> Instagram : WorKSafe Desk</a>  |<a href=""> Linkedin : WorK Safe Desk </a>   </p> 
+
+</header>
+
+
+<div class="hamburger" id="hamburger"><!--form chat-->
+    ☰
+</div>
+
+<div class="login-icon">
+<!--<a href="login.html"><img src="arrow_drop_down_100dp_E_FILL0_wght400_GRAD0_opsz48.png" title="Login"></a>-->
+<!--DROP NAV-->
+  <div class="navContainer">
+       <img src="images/arrow_drop_down_100dp_E_FILL0_wght400_GRAD0_opsz48.png"  onclick="menu.hidden^=1"   >
+    <div class="navigation">
+  
+    <!-- <button onclick="menu.hidden^=1">Click</button>-->
+
+     <ul id="menu" hidden >
+     <li><a href="login.html">Login</a></li>
+     <li><a href="signup.html">Sign Up</a></li>
+     <li><a href="profile.html">Your Profile</a></li>
+     <li><a href="">product</a></li>
+     <li><a href="">comments</a> </li>
+     </ul>
+     
+    </div>
+</div>
+<!--END OF DROP NAV-->
+</div>
+
+
+    <div class="logo22">
+ <a href="index.html"> <img src="images/loogo.png"></a>
+  </div>
+<div class="heading">
+<p>Report Harassment</p>
+</div>
+
+
+<nav class="navbar" id="navbar"> 
+<ul>
+  
+<li><a href="index.html">Home</a></li> 
+<li><a href="report.html">Report An Issue</a></li> 
+<li><a href="knowrights.html">Know Your Rights</a></li> 
+<li><a href="how.html">How It Works</a></li> 
+<li><a href="userProfile.html">User Profile</a></li> 
+<li><a href="support.html">Support And Resources</a></li> 
+
+<li><a href="faq.html">FAQS</a></li> 
+<li><a href="terms.html">Policies and Terms</a></li> 
+</ul>
+</nav> 
+</div>
+<h2>Report Harrasment!! Asap</h2>
+<div class="megaphoneimage">
+    
+<img src="images/megaphone.png">
+</div>
+
+
+
+<div class="formandyoutubecont">
+
+
+
+
+  <div class="youtube1">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-7HsoswIrlg?si=dQRUESRcRyTOrKuo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
+<div class="formm">
+<h2 class="happlication">Your Report Is Safe With Us</h2> 
+
+<form  action="https://formspree.io/f/mjgpojpv" method="POST" ><!--enctype="multipart/form-data"-->
+  
+      <label for="companyname">Name:</label>
+    <input type="text" name="Name"><br>
+
+     <label for="companyname"> Surname:</label>
+    <input type="text" name="Surname"><br>
+
+     <label for="companyname"> Email:</label>
+    <input type="email" name="Email"><br>
+
+    <label for="device type">Type of mistreatment:</label>
+
+    <select id="device type" name="Type of Mistreatment" required>
+        <option value="Selected Nothing">--Select an option--</option >
+    <option value="Harassment">Harassment</option >
+    <option value="Discrimination">Discrimination</option >   
+    <option value="Unfair Dismissal">Unfair dismissal</option > 
+    <option value="Unsafe Working Conditions">Unsafe working Conditions</option > 
+    <option value="Bullying">Bullying</option > 
+        
+    </select><br><br><br>
+    <label for="description">Description of your issue</label>
+    <textarea id="description"  rows="5" cols="4"   name="text Description" required> </textarea>  <br>
+
+    <label for="date">Date of occurence</label>
+    <input type="date" name="Date" required><br>
+
+    <label for="companyname"> Company Name:</label>
+    <input type="text" name="Company Name"><br>
+    <p>Evidence Upload</p>
+
+    <label for="evidence">Documents</label>
+    <input type="file" name="Documents"><br>
+
+    <label for="evidence">Images</label>
+    <input type="file" name="Image Evidence"><br>
+
+    <label for="evidence">Other form of evidence</label>
+    <input type="file" name="Other Evidence"><br>
+
+    
+
+    <div class="buttons">
+   <input type="submit"><br><br>
+   <input type="reset"><br>
+   </div>
+
+    
+</form>
+</div>
+</div>
+
+<div class="whatsappLogo">
+<a href="https://wa.me/27795843876" target="_blank" ><img src="images/whatsapp-icon-logo-png_seeklogo-305567.png"></a>
+</div>
+
+<footer>
+Crafted By Sibande Tech Systems<br>
+&copyCopyrights Reserved (2026)<br><br>
+Created for WorK Safe Desk
+
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const navbar = document.querySelector(".navbar");
+
+    hamburger.addEventListener("click", function () {
+        navbar.classList.toggle("show");
+        hamburger.textContent = navbar.classList.contains("show") ? "✖" : "☰";
+    });
+});
+</script>
+
+
+</body>
+</html>

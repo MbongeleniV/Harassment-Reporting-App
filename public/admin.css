@@ -1,0 +1,238 @@
+.navContainer{justify-content: space-between;
+              display: flex;
+               margin-left:40px;
+               margin-right: 40px;
+               align-items: center;
+               margin-top: -50px;
+              height:170px
+}
+
+.navbar ul{list-style:none;
+          justify-content: center;
+          display: flex;
+        
+          flex-wrap: wrap;
+}
+
+.navbar li{margin:0px}
+
+.navbar a{color:rgb(15, 14, 14);
+          font-family:sans-serif;
+        text-decoration: none;
+        padding:5px;
+        font-size:30px;
+        transition: 0.5s ease;
+        font-size: larger;
+        border: 1px solid;
+        border-radius: 5px;
+}
+.navbar a:hover{color: rgba(246, 27, 7, 0.727);
+
+}
+
+.stick{top:-50px;
+      position:sticky;
+      background-color:  rgb(131, 154, 196);
+      border-radius: 10px;
+      z-index: 999;
+      height:110px;
+
+}
+
+.logo img{width:120px;
+        
+}
+
+.logoText h1{font-weight: lighter;
+             font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+             color:rgb(243, 238, 238);
+             filter: drop-shadow(2px 3px 4px black);
+}
+.imagecollage2 {display:flex;
+                  margin:auto;
+                  flex-wrap: wrap;
+                  gap:50px;
+                  justify-content: center;
+                 /* background-color:rgba(165, 42, 42, 0.788);*/
+                 background-color:rgba(159, 206, 230, 0.925);
+                   border-radius: 7px;
+                 padding-top: 100px;
+                 padding-bottom: 100px;
+                            
+}
+.imagecollage2 img{width:300px;
+                  height:200px;
+                       
+}
+
+.image2 h1{font-size:24px;
+       
+}
+.image2 {display: block;
+        border:1px solid rgba(232, 229, 235, 0.651);
+        border-radius:7px ;
+        padding: 20px;
+        max-width: 300px;
+        background-color: rgba(108, 100, 134, 0.37);
+        transition: 1s ;
+        box-shadow: 2px 2px 3px;
+    
+}
+
+.image2 img{display: block;
+           margin:auto;
+           border: 1px solid rgb(194, 173, 173) ;
+           border-radius: 5px;
+           transition: 0.5s ease-in;
+           width:95%;
+           height:70%;
+
+}
+.image2 p{font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        /*padding:10px;*/
+        color: rgb(223, 222, 223);
+        line-height: 25px;
+
+         
+}
+
+.image2:hover {/*transform: translateY(-10px);*/
+               transform:translateY(-15px);
+              cursor:pointer;
+              transition: 1s ease-in;
+              
+}
+/*My intrests*/
+
+table{justify-self: center;
+    border: 1px solid rgb(90, 135, 164);
+    padding: 10px;
+    width:90%;
+        border-collapse:collapse;
+         border:1px solid rgb(90, 135, 164);
+
+    
+
+}
+.tableContainer{width:95%;
+    margin:auto;
+               overflow-x: auto;
+
+}
+
+
+
+
+table button{color:rgba(1, 1, 1, 0.952);
+            background-color: rgba(154, 138, 176, 0.693);
+            border-radius: 5px;
+            cursor:pointer;
+
+            
+                   justify-self:center;
+                   padding: 10px;
+                     margin:5px;
+                   width:120px;
+                   border-radius: 10px;
+                   background-color: rgba(4, 0, 255, 0.141);
+                    transition: 0.6s ease-in-out ;
+
+}
+table button:hover{ transform:scale(1.1);
+                         cursor:pointer;
+                         border:2px solid white;
+
+
+}
+table button:active{  transform:scale(1.1);
+                         cursor:pointer;
+                         border:2px solid rgb(244, 10, 10);
+
+}
+
+th{padding:5px;
+    border: 1px solid;
+        background-color: rgb(131, 154, 196);
+}
+td{padding:5px;
+    border:0.3px solid ;
+     border-bottom: 1px solid #ddd;
+
+}
+
+tr:hover{
+    background-color: #f5f5f5;
+}
+h1{text-align: center;
+    color: rgb(111, 111, 125);
+
+
+}
+
+.card-container{margin: 0px;
+               box-sizing: border-box;
+                display:flex;
+                justify-content:space-evenly;
+                 flex-wrap: wrap;
+               
+                row-gap: 50px;
+                border:1px solid rgba(0, 128, 0, 0.153);
+                border-radius: 10px;
+            
+                background-color: rgba(57, 142, 199, 0.066);
+                 background-image:linear-gradient(rgba(57, 142, 199, 0.041), rgba(141, 169, 86, 0.181)),
+        url("complaintform.wbp");
+                margin-top: 50px;
+                padding-top: 50px;
+                margin-bottom: 50px;
+             
+}
+
+.card{margin: 0px;
+  padding:0px; 
+  box-sizing: border-box;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    width:325px;
+      background-color: rgba(179, 161, 197, 0.2);
+      box-sizing: border-box;
+      border-radius:8px ;
+      overflow:hidden;
+      box-shadow: 2px 3px 4px rgb(23, 28, 23);
+      text-align: center;
+      display: block;
+    margin:auto;
+    display: flex;
+    /*gap:20px*/
+}
+
+.card img{margin: 0px;
+         padding:10px; 
+         box-sizing: border-box;
+         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+         filter: drop-shadow(3px 2px 3px rgba(0, 179, 255, 0.762));
+         width: 25px;
+        height:auto;
+}
+.card-content{margin: 0px;
+  padding:0px; 
+  box-sizing: border-box;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding:16px;
+              
+}
+
+.card-content h3{margin: 0px;
+  padding:0px; 
+  box-sizing: border-box;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    
+    font-size:28px ;
+                 margin-bottom:8px ;
+}
+.card-content p{margin: 0px;
+  padding:0px; 
+  box-sizing: border-box;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    color:rgb(24, 23, 23)
+}
+

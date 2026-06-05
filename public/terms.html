@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorK Safe Desk</title>
+    <link rel="stylesheet" href="style.css">
+      <link rel="icon" type="image" href="loogo.png" >
+</head>
+<body>
+
+    <div class="stick" >
+<header>
+        <p>Contact| Tel: 012 0300 200 | Email: <a  href="mailto:reportharassment@worksafedesk.co.za">reportharassment@worksafedesk.co.za</a> |<a href=""> FaceBook : WorK Safe Desk </a> |<a href=""> X : WorKSafe Desk </a> |<a href=""> Instagram : WorKSafe Desk</a>  |<a href=""> Linkedin : WorK Safe Desk </a>   </p> 
+
+</header>
+
+
+<div class="hamburger" id="hamburger"><!--form chat-->
+    ☰
+</div>
+
+<div class="login-icon">
+<!--<a href="login.html"><img src="arrow_drop_down_100dp_E_FILL0_wght400_GRAD0_opsz48.png" title="Login"></a>-->
+<!--DROP NAV-->
+  <div class="navContainer">
+       <img src="images/arrow_drop_down_100dp_E_FILL0_wght400_GRAD0_opsz48.png"  onclick="menu.hidden^=1"   >
+    <div class="navigation">
+  
+    <!-- <button onclick="menu.hidden^=1">Click</button>-->
+
+     <ul id="menu" hidden >
+     <li><a href="login.html">Login</a></li>
+     <li><a href="signup.html">Sign Up</a></li>
+     <li><a href="profile.html">Your Profile</a></li>
+     <li><a href="">product</a></li>
+     <li><a href="">comments</a> </li>
+     </ul>
+     
+    </div>
+</div>
+<!--END OF DROP NAV-->
+</div>
+
+
+    <div class="logo22">
+ <a href="index.html"> <img src="images/loogo.png"></a>
+  </div>
+<div class="heading">
+<p>Report Harassment </p>
+</div>
+
+
+<nav class="navbar" id="navbar"> 
+<ul>
+  
+<li><a href="index.html">Home</a></li> 
+<li><a href="report.html">Report An Issue</a></li> 
+<li><a href="knowrights.html">Know Your Rights</a></li> 
+<li><a href="how.html">How It Works</a></li> 
+<li><a href="userProfile.html">User Profile</a></li> 
+<li><a href="support.html">Support And Resources</a></li> 
+
+<li><a href="faq.html">FAQS</a></li> 
+<li><a href="terms.html">Terms And Conditions</a></li> 
+</ul>
+</nav> 
+</div>
+
+<div class="terms">
+<h2>Disclaimer:</h2>
+<p>The information provided is for general purposes only.
+We make every effort to ensure accuracy and reliability.
+However, we do not guarantee that all content is error-free.
+We are not responsible for any actions taken based on this information.
+Users are advised to use the information at their own discretion.
+Any reliance on this content is strictly at the user's own risk.
+</p>
+
+<h2>Limits of responsibility</h2>
+<p>  We are not liable for indirect or unintended consequences of using this service.
+Our responsibility is limited to the extent permitted by law.
+We do not accept liability for losses caused by misuse or misunderstanding.
+External factors beyond our control are not our responsibility.
+Users are responsible for how they use the information provided.
+All use of the service is at the user's own risk.
+</p>
+
+<h2>User obligations</h2>
+<p>Users must provide accurate and honest information when required.
+You are responsible for maintaining the confidentiality of your account.
+The service must not be used for illegal or harmful activities.
+Users must comply with all applicable rules and guidelines.
+Any misuse of the platform may result in restricted access.
+It is the user's responsibility to use the service appropriately.!</p>
+<h2>No retaliation guarantee </h2>
+<p>We strictly prohibit any form of retaliation against users.
+No user will be punished for submitting honest reports or feedback.
+All concerns are handled fairly and without bias.
+Your safety and protection are our top priority.
+Any attempt at retaliation will be taken seriously and investigated.
+We ensure a safe and respectful environment for all users.</p>
+
+
+<!--other infor-->
+<h2>Data protection measures</h2>
+<p>We apply strong security measures to protect your personal data at all times.
+Access to information is strictly controlled and limited to authorized users only.
+We use secure systems to prevent unauthorized access, loss, or misuse of data.
+Regular security checks are performed to identify and fix potential risks.
+Our systems are continuously updated to meet modern security standards.
+We are committed to ensuring your data remains safe and confidential.
+</p>
+
+<h2>Anonymity guarantees</h2>
+<p> All reports are handled in a way that protects your identity.
+We do not collect unnecessary personal information that could identify you.
+Your submission remains anonymous throughout the entire process.
+Even during investigations, your identity is not disclosed.
+We take privacy seriously and prioritize confidentiality at all stages.
+You can report concerns with confidence and peace of mind. 
+</p>
+
+<h2>Who has access to reports?</h2>
+<p>Only authorized and trained personnel can access submitted reports.
+Access is granted strictly for investigation and resolution purposes.
+Staff members follow confidentiality rules when handling reports.
+All access to data is logged and monitored for security.
+Unauthorized access is strictly prohibited and prevented by system controls.
+We ensure that your information is handled responsibly and securely.</p>
+
+<h2>Data retention policy</h2>
+<p>We retain personal data only for as long as it is necessary.
+The retention period depends on legal, operational, or reporting requirements.
+Once the data is no longer needed, it is securely deleted or anonymized.
+We follow strict guidelines to ensure proper data lifecycle management.
+Regular reviews are conducted to determine what data should be kept or removed.
+This helps minimize risk and protect your privacy over time.</p>
+
+<h2>Encryption/security explanation </h2>
+<p>We use advanced encryption to protect data during transmission and storage.
+This ensures that your information cannot be read by unauthorized parties.
+Secure communication channels are used whenever data is transferred.
+Our systems follow industry-standard encryption protocols.
+Regular updates are applied to maintain strong security protection.
+These measures help ensure your data remains safe and confidential.</p>
+
+<label>I have read and understood the Terms and Conditions</label>
+</div>
+<input type="checkbox">
+
+
+
+<footer>
+Crafted By Sibande Tech Systems<br>
+&copyCopyrights Reserved (2026)<br><br>
+Created for WorK Safe Desk
+
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const navbar = document.querySelector(".navbar");
+
+    hamburger.addEventListener("click", function () {
+        navbar.classList.toggle("show");
+        hamburger.textContent = navbar.classList.contains("show") ? "✖" : "☰";
+    });
+});
+</script>
+<div class="whatsappLogo">
+<a href="https://wa.me/27795843876" target="_blank" ><img src="images/whatsapp-icon-logo-png_seeklogo-305567.png"></a>
+</div>
+</body>
+</html>

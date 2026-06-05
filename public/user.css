@@ -1,0 +1,103 @@
+.navContainer{justify-content: space-between;
+              display: flex;
+               margin-left:40px;
+               margin-right: 40px;
+               align-items: center;
+               margin-top: -50px;
+              height:170px
+}
+
+.navbar ul{list-style:none;
+          justify-content: center;
+          display: flex;
+        
+          flex-wrap: wrap;
+}
+
+.navbar li{margin:0px}
+
+.navbar a{color:rgb(15, 14, 14);
+          font-family:sans-serif;
+        text-decoration: none;
+        padding:5px;
+        font-size:30px;
+        transition: 0.5s ease;
+        font-size: larger;
+        border: 1px solid;
+        border-radius: 5px;
+}
+.navbar a:hover{color: rgba(250, 11, 11, 0.789);
+
+}
+
+.stick{top:-50px;
+      position:sticky;
+      background-color:  rgb(131, 154, 196);
+      border-radius: 10px;
+      z-index: 999;
+      height:110px;
+
+}
+
+.logo img{width:120px;
+        
+}
+
+.logoText h1{font-weight: lighter;
+             font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+             color:rgb(243, 238, 238);
+             filter: drop-shadow(2px 3px 4px black);
+             font-size: 2rem;
+}
+
+.aboutContainer{ display: flex;
+                background-color: rgb(131, 163, 198);
+                width: 900px;
+                justify-self: center;
+                margin-top: 50px;
+                width:90%;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                color:white
+
+}
+.aboutContainer img{width:70%;
+                    border-radius: 100%;
+                    filter:drop-shadow(1px 2px 4px rgb(0, 34, 255));
+
+}
+
+
+.parent{ display:grid;
+        gap:10px;
+        grid-template-columns: 1fr 2fr;
+        margin:50px;
+        background-color: bisque;
+
+}
+.card{background-color: rgb(120, 144, 215);
+      padding:20px;
+      border-radius: 5px;
+      transition: 0.3s;
+      font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color:white
+     
+}
+.card:hover{transform:rotateX(13deg);
+
+}
+footer{text-align: center;
+        border:rgb(86, 79, 152) 2px solid;
+        border-radius:12px;
+        padding:7px;
+        margin:40px;
+        background-color:rgba(93, 20, 220, 0.067);
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        position:relative;
+        background-image: linear-gradient(rgba(55, 55, 212, 0.264), rgba(201, 44, 1, 0.051)) ,url("foooterim.webp");
+        /*background-repeat: no-repeat;*/
+        background-size:1500px;
+
+}
+body{background-color: rgba(210, 197, 197, 0.403);
+
+}
