@@ -119,6 +119,34 @@ else{
 });
 
 
+router.get("/user-data", (req,res)=>{
+if(!req.session.user){
+
+    return res.status(401).send("unathorized")
+}
+
+//use the UserID stored in the session during login
+const UserID=req.session.user.UserID;
+const sql="SELECT * FROM users WHERE UserID=?";
+
+db.query(sql,[UserID], (err,results)=>{
+
+    if(err) return res.send("Error");
+    if(results.length==0){
+        return res.send("User not found");
+
+    }
+    const user=results[0];
+    delete user.Password;
+    res.json(user);
+
+});
+
+
+
+
+});
+
 
 
 
