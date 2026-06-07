@@ -127,7 +127,7 @@ if(!req.session.user){
 
 //use the UserID stored in the session during login
 const UserID=req.session.user.UserID;
-const sql="SELECT * FROM users WHERE UserID=?";
+const sql="SELECT  users.UserID, users.Name, users.Surname, users.Email ,users.Gender,users.CompanyName,  reports.ReportID, reports.MistreatmentType, reports.Description, reports.DateSubmitted, reports.Status  FROM users INNER JOIN reports ON users.UserID = reports.UserID  WHERE users.UserID = ?  ";
 
 db.query(sql,[UserID], (err,results)=>{
 
@@ -144,6 +144,19 @@ db.query(sql,[UserID], (err,results)=>{
 
 
 
+
+});
+
+//logging out a user
+router.get("/logout",(req,res)=>{
+req.session.destroy((err)=>{
+    if(err){
+         return res.status(500).send("Could not log out");
+    }
+    res.clearCookie("connect.sid");
+    res.redirect("/login.html");
+   
+});
 
 });
 

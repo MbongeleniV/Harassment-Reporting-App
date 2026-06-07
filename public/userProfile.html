@@ -27,7 +27,7 @@
 <nav class="navbar " id="navbar"> 
 <ul>
   
-<li><a href="index.html">Logout</a></li> 
+<li id="logOutBtn"><a>Logout</a></li>
 
 </ul>
 </nav> 
@@ -59,14 +59,14 @@
 
         <div class="card">
          <h2>Report Status</h2>
-         <p>Status: In Progress</p>
+         <p>Status: <span id="userReportStatus"> </span></p>
         </div>
 
          <div class="card">
             <h2>Report Details</h2>
-            <p>Report ID: R001</p>
-            <p>Category:  Bullying</p>
-            <p>Date Submitted:  10 June 2026</p>
+            <p>Report ID: <span  id="userReportID"></span></p>
+            <p>MistreatmentType: <span id="userMistreatmentType"></span></p>
+            <p>Date Submitted: <span id="userReportDate"></span></p>
         </div>
 
          <div class="card">
@@ -109,12 +109,23 @@ fetch('/user-data')
     document.getElementById('userGender').textContent=user.Gender;
     document.getElementById('userEmail').textContent=user.Email;
     document.getElementById('userCompany').textContent=user.CompanyName;
-    //document.getElementById('userDescription').textContent=user.
+
+    document.getElementById('userDescription').textContent=user.Description;
+    document.getElementById('userReportID').textContent=user.ReportID;
+    document.getElementById('userMistreatmentType').textContent=user.MistreatmentType;
+    document.getElementById('userReportDate').textContent=user.DateSubmitted;
+    document.getElementById('userReportStatus').textContent=user.Status;
+
+
 
 })
 .catch(err => console.error("Error Fetching user Data from the database ",err));
 
 })
+
+document.getElementById("logOutBtn").addEventListener("click", () => {
+    window.location.href ="login.html" ;
+});
 
 
 </script>
