@@ -1,8 +1,99 @@
 const express=require("express");
 const bcrypt=require("bcryptjs");
+const multer= require ("multer");
+
+
+
+
 const db=require("../db");
 
 const router=express.Router();
+
+//code for multer
+
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "public/uploads");
+    },
+
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + "-" + file.originalname);
+    }
+});
+
+const upload = multer({ storage });
+
+//Route for multer image uploads
+router.post(
+    "/reportssubmission",
+    upload.array("evidenceFiles", 10),
+    (req, res) => {
+
+        const {
+            MistreatmentType,
+            Description,
+            OccurrenceDate,
+            CompanyName
+        } = req.body;
+
+        const UserID = req.session.user.UserID;
+
+        const reportSql = `
+            INSERT INTO Reports
+            (UserID, MistreatmentType, Description, OccurrenceDate, CompanyName)
+            VALUES (?, ?, ?, ?, ?)
+        `;
+
+        db.query(
+            reportSql,
+            [
+                UserID,
+                MistreatmentType,
+                Description,
+                OccurrenceDate,
+                CompanyName
+            ],
+            (err, result) => {
+
+                if (err) {
+                    console.log(err);
+                    return res.send("Error creating report");
+                }
+
+                const reportID = result.insertId;
+
+                if (req.files.length === 0) {
+                    return res.send("Report submitted successfully");
+                }
+
+                req.files.forEach(file => {
+
+                    const evidenceSql = `
+                        INSERT INTO Evidence
+                        (ReportID, FileName, FilePath)
+                        VALUES (?, ?, ?)
+                    `;
+
+                    db.query(
+                        evidenceSql,
+                        [
+                            reportID,
+                            file.originalname,
+                            "/uploads/" + file.filename
+                        ]
+                    );
+                });
+
+                res.send("Report and evidence uploaded successfully");
+            }
+        );
+    }
+);
+// end code for multer
+
+
+
 
 router.post("/signup", async (req,res)=>{
       console.log(req.body);
