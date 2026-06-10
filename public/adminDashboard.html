@@ -48,7 +48,7 @@
 <h2>Total Reports</h2>
 
 
-<p>Number Of Reports:</p>
+<p id="totalReports">Number Of Reports:</p>
 
 
 </div>
@@ -57,7 +57,7 @@
 
 <h2>Submitted</h2>
 
-<p>Number Of Submitted Reports</p>
+<p id="submittedReports">Number Of Submitted Reports</p>
 
 </div>
 
@@ -65,7 +65,7 @@
 
 <h2>In Progress</h2>
 
-<p>Number Of In Progress Reports</p>
+<p id="inProgressReports">Number Of In Progress Reports</p>
 
 </div>
 
@@ -73,7 +73,7 @@
 
 <h2>Resolved</h2>
 
-<p>Number Of Resolved Reports</p>
+<p id="resolvedReports">Number Of Resolved Reports</p>
 
 </div>
 
@@ -88,129 +88,24 @@
 
 
   <tr>
+
 <th>Report ID</th>
 <th>Reporter Name</th>
 <th>Gender</th>
 <th>Category</th>
 <th>Date</th>
 <th>Status</th>
+<th>Description</th>
 <th>Action</th>
+<th>View Evidence</th>
+
   </tr>
+<tbody id="reportTableBody">
 
 
-<tr>
-    <td>R001</td>
-    <td>John Doe</td>
-    <td>Male</td>
-    <td>Bullying</td>
-    <td>10/06/2026</td>
-    <td> <select>
-            <option>Submitted</option>
-            <option>In Progress</option>
-            <option>Escalated</option>
-            <option>Resolved</option>
-
-    </select>
-    </td>
-    <td><button>Update</button></td>
+</tbody>
 
 
-</tr>
-
-<tr>
-    <td>R001</td>
-    <td>John Doe</td>
-    <td>Male</td>
-    <td>Bullying</td>
-    <td>10/06/2026</td>
-    <td> <select>
-            <option>Submitted</option>
-            <option>In Progress</option>
-            <option>Escalated</option>
-            <option>Resolved</option>
-
-    </select>
-    </td>
-    <td><button>Update</button></td>
-
-
-</tr>
-
-<tr>
-    <td>R001</td>
-    <td>John Doe</td>
-    <td>Male</td>
-    <td>Bullying</td>
-    <td>10/06/2026</td>
-    <td> <select>
-            <option>Submitted</option>
-            <option>In Progress</option>
-            <option>Escalated</option>
-            <option>Resolved</option>
-
-    </select>
-    </td>
-    <td><button>Update</button></td>
-
-
-</tr>
-
-<tr>
-    <td>R001</td>
-    <td>John Doe</td>
-    <td>Male</td>
-    <td>Bullying</td>
-    <td>10/06/2026</td>
-    <td> <select>
-            <option>Submitted</option>
-            <option>In Progress</option>
-            <option>Escalated</option>
-            <option>Resolved</option>
-
-    </select>
-    </td>
-    <td><button>Update</button></td>
-
-
-</tr>
-
-<tr>
-    <td>R001</td>
-    <td>John Doe</td>
-    <td>Male</td>
-    <td>Bullying</td>
-    <td>10/06/2026</td>
-    <td> <select>
-            <option>Submitted</option>
-            <option>In Progress</option>
-            <option>Escalated</option>
-            <option>Resolved</option>
-
-    </select>
-    </td>
-    <td><button>Update</button></td>
-
-
-</tr>
-
-<tr>
-    <td>R001</td>
-    <td>John Doe</td>
-    <td>Male</td>
-    <td>Bullying</td>
-    <td>10/06/2026</td>
-    <td> <select>
-            <option>Submitted</option>
-            <option>In Progress</option>
-            <option>Escalated</option>
-            <option>Resolved</option>
-
-    </select>
-    </td>
-    <td><button>Update</button></td>
-
-
-</tr>
    
 </table>
 </div>
@@ -254,6 +149,169 @@
 
 
 </div>
+
+//chat<div id="evidenceModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:black; color:white; overflow:auto; padding:20px;">
+
+    <h2>Evidence Files</h2>
+
+    <button onclick="closeEvidence()">Close</button>
+
+    <div id="evidenceContainer"></div>
+
+</div>
+
+<script>
+//Creating table rows dynamcally route//copied
+fetch("/admin/reports")
+.then(res => res.json())
+.then(data => {
+
+    const tableBody =
+    document.getElementById("reportTableBody");
+
+    data.forEach(report => {
+
+        tableBody.innerHTML += `
+           <tr>
+    <td>R${report.ReportID}</td>
+    <td>${report.Name} ${report.Surname}</td>
+    <td>${report.Gender}</td>
+    <td>${report.MistreatmentType}</td>
+    <td>${report.DateSubmitted}</td>
+
+    <td>
+        <select id="status-${report.ReportID}">
+            <option value="Submitted" ${report.Status === "Submitted" ? "selected" : ""}>Submitted</option>
+
+            <option value="In Progress" ${report.Status === "In Progress" ? "selected" : ""}>In Progress</option>
+
+            <option value="Resolved" ${report.Status === "Resolved" ? "selected" : ""}>Resolved</option>
+        </select>
+    </td>
+
+    <td>${report.Description}</td>
+
+    <td>
+        <button onclick="updateStatus(${report.ReportID})">
+            Update
+        </button>
+    </td>
+
+    <td>
+        <button onclick="viewEvidence(${report.ReportID})">
+            View Evidence
+        </button>
+    </td>
+</tr>
+        `;
+    });
+
+  
+
+});
+
+  //chat
+    async function updateStatus(reportID){
+
+    const status = document.getElementById(
+        `status-${reportID}`
+    ).value;
+
+    try{
+
+        const response = await fetch(
+            `/admin/report/${reportID}/status`,
+            {
+                method: "PUT",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body: JSON.stringify({
+                    Status: status
+                })
+            }
+        );
+
+        const message =
+        await response.text();
+
+        alert(message);
+
+    }catch(error){
+
+        console.error(error);
+
+        alert("Failed to update status");
+    }
+}
+
+
+//chat 
+async function viewEvidence(reportID) {
+
+    const modal = document.getElementById("evidenceModal");
+    const container = document.getElementById("evidenceContainer");
+
+    container.innerHTML = "Loading...";
+
+    modal.style.display = "block";
+
+    const res = await fetch(`/admin/evidence/${reportID}`);
+    const data = await res.json();
+
+    container.innerHTML = "";
+
+    data.forEach(file => {
+
+        const filePath = file.FilePath;
+
+        // image preview
+        if (filePath.match(/\.(jpg|jpeg|png|gif)$/i)) {
+
+            container.innerHTML += `
+                <img src="${filePath}" style="width:300px; margin:10px;">
+            `;
+
+        } else {
+
+            // PDF / other files
+            container.innerHTML += `
+                <p>
+                    <a href="${filePath}" target="_blank">
+                        Download File
+                    </a>
+                </p>
+            `;
+        }
+    });
+}
+
+//chat
+function closeEvidence() {
+    document.getElementById("evidenceModal").style.display = "none";
+}
+
+//chat Fetch for stats 
+
+async function loadStats(){
+
+    const res = await fetch("/admin/stats");
+    const data = await res.json();
+
+    document.getElementById("totalReports").textContent = data.total;
+    document.getElementById("submittedReports").textContent = data.submitted;
+    document.getElementById("inProgressReports").textContent = data.inProgress;
+    document.getElementById("resolvedReports").textContent = data.resolved;
+}
+
+loadStats();
+
+
+
+
+</script>
 
 
 </body>

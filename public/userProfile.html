@@ -40,7 +40,8 @@
 
     <div>
           <!--<img src="images/thinking.jpeg">-->
-           <img  src="${user.1780948012457-9}">
+           <!--<img  src="${user.1780948012457-9}">-->
+           <img src="images/default-user.png">
 
     </div>
 
@@ -95,11 +96,12 @@ Created for WorK Safe Desk
 document.addEventListener("DOMContentLoaded", function(){
 //fetching the data from the gget route
 fetch('/user-data')
-.then(response=>{
+.then(response =>{
 
     if(!response.ok){
 
-        window.location.href("login.html");
+       window.location.href("/login.html");
+       
     }
     return response.json();
 })

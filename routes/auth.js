@@ -147,7 +147,7 @@ res.redirect("report.html");
 
 
 //Below is the route for admin page
-router.post("/adminsignup", async(req,res)=>{
+router.post("/adminSignup", async(req,res)=>{
  const{Name,Surname,Email,Password}=req.body;
  const hashedPassword=await bcrypt.hash(Password,10);
  const sql="INSERT INTO admins(Name,Surname,Email,Password) VALUES(?,?,?,?)";
@@ -157,7 +157,7 @@ router.post("/adminsignup", async(req,res)=>{
        return res.send("Error: "+err);
     }
     else{
-      res.send("Admin has been created succesfully"); 
+      res.send("Admin account has been created succesfully"); 
     }
 
 
@@ -165,7 +165,7 @@ router.post("/adminsignup", async(req,res)=>{
 
 });
 //Below is the route for admin page
-router.post("/adminlogin", (req,res)=>{
+/*router.post("/adminLogin", (req,res)=>{
 const {Name,Email,Password}=req.body;
 const sql="SELECT * FROM admins WHERE Email=?";
 db.query(sql,[Email], async(err,results)=>{
@@ -185,9 +185,67 @@ res.redirect("adminDashboard.html");
 
 });
 
+});*/
+
+router.post("/adminLogin", (req,res)=>{
+    const {Email,Password}=req.body;
+
+    const sql="SELECT * FROM admins WHERE Email=?";
+
+    db.query(sql,[Email], async(err,results)=>{
+
+        if(err) return res.send("Error");
+
+        if(results.length===0){
+            return res.send("User not found");
+        }
+
+        const admin = results[0];
+
+        const isMatch =
+        await bcrypt.compare(
+            Password,
+            admin.Password
+        );
+
+        if(!isMatch){
+            return res.send("Incorrect Password");
+        }
+
+        req.session.admin = admin;
+
+        res.redirect("adminDashboard.html");
+    });
 });
 
-router.post("/reportssubmission",async(req,res)=>{
+ 
+
+router.put("/admin/report/:id/status", (req,res)=>{
+
+    const { Status }=req.body;
+    const ReportId=req.params.id;
+
+    const sql="UPDATE reports SET Status = ? WHERE ReportID = ? ";
+    db.query(sql,[Status, ReportId ], (err,results)=>{
+     
+        if(err){
+          return res.status(500).json(err);
+
+        }
+        res.send("Status Updated")
+
+
+    });
+
+
+
+
+
+
+});
+
+
+router.post("/submittingReports",async(req,res)=>{
 const{MistreatmentType,Description,OccurrenceDate,CompanyName,Status}=req.body;
  const UserID = req.session.user.UserID;
 const sql="INSERT INTO reports(UserId,MistreatmentType,Description,OccurrenceDate,CompanyName,Status) VALUES(?,?,?,?,?,?)";
@@ -227,7 +285,7 @@ db.query(sql,[UserID], (err,results)=>{
         return res.send("User not found");
 
     }
-    const user=results[0];
+    const user=results[0];//res.json(results); 
     delete user.Password;
     res.json(user);
 
@@ -237,6 +295,32 @@ db.query(sql,[UserID], (err,results)=>{
 
 
 });
+
+//View eveidence button Route//copied
+router.get("/admin/evidence/:reportID",(req,res)=>{
+
+    const reportID =
+    req.params.reportID;
+
+    const sql = `
+        SELECT *
+        FROM evidence
+        WHERE ReportID = ?
+    `;
+
+    db.query(sql,[reportID],(err,results)=>{
+
+        if(err){
+            return res.status(500).json(err);
+        }
+
+        res.json(results);
+    });
+
+});
+
+
+
 
 //logging out a user
 router.get("/logout",(req,res)=>{
@@ -251,7 +335,71 @@ req.session.destroy((err)=>{
 
 });
 
+//code from chat , maybe i willdelete it
 
+router.get("/admin/reports", (req, res) => {
+
+    if (!req.session.admin) {
+        return res.status(401).send("Please login first");
+    }
+
+    const sql = `
+        SELECT
+            reports.ReportID,
+            reports.MistreatmentType,
+            reports.Description,
+            reports.OccurrenceDate,
+            reports.Status,
+            reports.DateSubmitted,
+
+            users.Name,
+            users.Surname,
+            users.Gender
+
+        FROM reports
+        INNER JOIN users
+        ON reports.UserID = users.UserID
+
+        ORDER BY reports.DateSubmitted DESC
+    `;
+
+    db.query(sql, (err, results) => {
+
+        if (err) {
+            console.log(err);
+            return res.status(500).json(err);
+        }
+
+        res.json(results);
+    });
+
+});
+
+//chat api for status
+router.get("/admin/stats", (req,res)=>{
+
+    if(!req.session.admin){
+        return res.status(401).send("Login required");
+    }
+
+    const sql = `
+        SELECT
+        COUNT(*) AS total,
+        SUM(CASE WHEN Status='Submitted' THEN 1 ELSE 0 END) AS submitted,
+        SUM(CASE WHEN Status='In Progress' THEN 1 ELSE 0 END) AS inProgress,
+        SUM(CASE WHEN Status='Resolved' THEN 1 ELSE 0 END) AS resolved
+        FROM reports
+    `;
+
+    db.query(sql,(err,results)=>{
+
+        if(err){
+            return res.status(500).json(err);
+        }
+
+        res.json(results[0]);
+    });
+});
 
 
 
