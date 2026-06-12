@@ -202,12 +202,8 @@ router.post("/adminLogin", (req,res)=>{
 
         const admin = results[0];
 
-        const isMatch =
-        await bcrypt.compare(
-            Password,
-            admin.Password
-        );
-
+        const isMatch = await  bcrypt.compare( Password,  admin.Password );
+        
         if(!isMatch){
             return res.send("Incorrect Password");
         }
@@ -237,11 +233,6 @@ router.put("/admin/report/:id/status", (req,res)=>{
 
     });
 
-
-
-
-
-
 });
 
 
@@ -262,12 +253,9 @@ else{
 
 });
 
-
-
-
 });
 
-
+//router for user dashboard
 router.get("/user-data", (req,res)=>{
 if(!req.session.user){
 
@@ -290,8 +278,6 @@ db.query(sql,[UserID], (err,results)=>{
     res.json(user);
 
 });
-
-
 
 
 });

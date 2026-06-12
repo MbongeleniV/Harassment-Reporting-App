@@ -18,16 +18,18 @@
 </div>
 
 <div class="logoText">
-<h1>Harassment Reporting Admin Dashboard</h1>
+<h1> Admin Dashboard</h1>
 
 </div>
 
 
 <nav class="navbar " id="navbar"> 
 <ul>
-  
-<li><a href="index.html">Logout</a></li> 
-<li><a href="index.html">Admin Login</a></li> 
+
+    
+<li><a href="index.html">Home</a></li> 
+
+
 
 
 </ul>
@@ -36,19 +38,19 @@
 </div>
 </div> 
 
-
-
-
-    
+<div class="heroimage">
+<img src="images/adminheroImage.png">
+</div>
+  
 <div class="imagecollage2">
 
   <div class="image2">
 
-
+<div clss="statsHeadings">
 <h2>Total Reports</h2>
+</div>
 
-
-<p id="totalReports">Number Of Reports:</p>
+<h1 id="totalReports">Number Of Reports:</h2>
 
 
 </div>
@@ -57,7 +59,7 @@
 
 <h2>Submitted</h2>
 
-<p id="submittedReports">Number Of Submitted Reports</p>
+<h1 id="submittedReports">Number Of Submitted Reports</h1>
 
 </div>
 
@@ -65,7 +67,7 @@
 
 <h2>In Progress</h2>
 
-<p id="inProgressReports">Number Of In Progress Reports</p>
+<h1 id="inProgressReports">Number Of In Progress Reports</h1>
 
 </div>
 
@@ -73,7 +75,7 @@
 
 <h2>Resolved</h2>
 
-<p id="resolvedReports">Number Of Resolved Reports</p>
+<h1 id="resolvedReports">Number Of Resolved Reports</h1>
 
 </div>
 
@@ -115,7 +117,7 @@
 <div class="card">
     <img src="images/solid black.jpg">
     <div class="card-content">
-    <h2>Harassment Categories</h2>
+    <h3>Harassment Categories</h3>
     <ul>
      <li>Bullying</li><br>
      <li>Verbal Abuse</li><br>
@@ -150,7 +152,7 @@
 
 </div>
 
-//chat<div id="evidenceModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:black; color:white; overflow:auto; padding:20px;">
+/<!--chat--><div id="evidenceModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:black; color:white; overflow:auto; padding:20px;">
 
     <h2>Evidence Files</h2>
 
@@ -166,8 +168,8 @@ fetch("/admin/reports")
 .then(res => res.json())
 .then(data => {
 
-    const tableBody =
-    document.getElementById("reportTableBody");
+    const tableBody =    document.getElementById("reportTableBody");
+
 
     data.forEach(report => {
 
