@@ -2,18 +2,13 @@ const express=require("express");
 const bcrypt=require("bcryptjs");
 const multer= require ("multer");
 
-
-
-
 const db=require("../db");
 
 const router=express.Router();
 
 //code for multer
-
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
+const storage = multer.diskStorage({destination: (req, file, cb) => {
+    
         cb(null, "public/uploads");
     },
 
@@ -25,37 +20,16 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 //Route for multer image uploads
-router.post(
-    "/reportssubmission",
-    upload.array("evidenceFiles", 10),
-    (req, res) => {
-
-        const {
-            MistreatmentType,
-            Description,
-            OccurrenceDate,
-            CompanyName
-        } = req.body;
-
+router.post("/reportssubmission",upload.array("evidenceFiles", 10),(req, res) => {
+    
+        const {MistreatmentType,Description,OccurrenceDate,CompanyName } = req.body;
+            
         const UserID = req.session.user.UserID;
 
-        const reportSql = `
-            INSERT INTO Reports
-            (UserID, MistreatmentType, Description, OccurrenceDate, CompanyName)
-            VALUES (?, ?, ?, ?, ?)
-        `;
-
-        db.query(
-            reportSql,
-            [
-                UserID,
-                MistreatmentType,
-                Description,
-                OccurrenceDate,
-                CompanyName
-            ],
-            (err, result) => {
-
+        const reportSql = `INSERT INTO Reports (UserID, MistreatmentType, Description, OccurrenceDate, CompanyName) VALUES (?, ?, ?, ?, ?)  `;
+    
+        db.query(reportSql,[UserID,MistreatmentType, Description,OccurrenceDate,CompanyName ],(err, result) => {
+            
                 if (err) {
                     console.log(err);
                     return res.send("Error creating report");
@@ -69,19 +43,9 @@ router.post(
 
                 req.files.forEach(file => {
 
-                    const evidenceSql = `
-                        INSERT INTO Evidence
-                        (ReportID, FileName, FilePath)
-                        VALUES (?, ?, ?)
-                    `;
-
-                    db.query(
-                        evidenceSql,
-                        [
-                            reportID,
-                            file.originalname,
-                            "/uploads/" + file.filename
-                        ]
+                    const evidenceSql = `  INSERT INTO Evidence  (ReportID, FileName, FilePath)   VALUES (?, ?, ?)  `;
+                       db.query( evidenceSql,    [   reportID, file.originalname,"/uploads/" + file.filename ]
+                    
                     );
                 });
 
@@ -92,9 +56,7 @@ router.post(
 );
 // end code for multer
 
-
-
-
+//code for user employee signup "employee signup express API"
 router.post("/signup", async (req,res)=>{
       console.log(req.body);
 const {Title,Gender,Name,Surname,Email,CompanyName,HearAboutUs,Password}=req.body;
@@ -116,7 +78,9 @@ else{
 
 
 router.post("/login",  (req,res)=>{
-
+  
+    console.log(req.body);
+   
 const {Name,Email,Password}=req.body;
 const sql="SELECT * FROM users WHERE Email=?";
 db.query(sql,[Email], async (err,results)=>{
@@ -140,13 +104,11 @@ res.redirect("report.html");
 
 });
 
-
-
 });
 
 
+//Below is the route for admin sign up page
 
-//Below is the route for admin page
 router.post("/adminSignup", async(req,res)=>{
  const{Name,Surname,Email,Password}=req.body;
  const hashedPassword=await bcrypt.hash(Password,10);
@@ -164,28 +126,7 @@ router.post("/adminSignup", async(req,res)=>{
  });
 
 });
-//Below is the route for admin page
-/*router.post("/adminLogin", (req,res)=>{
-const {Name,Email,Password}=req.body;
-const sql="SELECT * FROM admins WHERE Email=?";
-db.query(sql,[Email], async(err,results)=>{
-if(err)return res.send("Error:");
-if(results.length==0){
-   return res.send("User not found");
-}
-const user=results[0];
-const isMatch= await bcrypt.compare(Password,user.Password);
 
-if(!isMatch){
-  return res.send("Incorrect Password");
-
-}
-req.session.user=user;
-res.redirect("adminDashboard.html");
-
-});
-
-});*/
 
 router.post("/adminLogin", (req,res)=>{
     const {Email,Password}=req.body;
@@ -208,18 +149,18 @@ router.post("/adminLogin", (req,res)=>{
             return res.send("Incorrect Password");
         }
 
-        req.session.admin = admin;
+        req.session.admin = admin; //"Store this admin object inside the session so I can remember who is logged in."
 
         res.redirect("adminDashboard.html");
     });
 });
 
- 
+//route for changing the Employee status
 
 router.put("/admin/report/:id/status", (req,res)=>{
 
-    const { Status }=req.body;
-    const ReportId=req.params.id;
+    const { Status } = req.body;
+    const ReportId = req.params.id;
 
     const sql="UPDATE reports SET Status = ? WHERE ReportID = ? ";
     db.query(sql,[Status, ReportId ], (err,results)=>{
@@ -230,11 +171,34 @@ router.put("/admin/report/:id/status", (req,res)=>{
         }
         res.send("Status Updated")
 
-
     });
 
 });
 
+router.get("/adminDetails",(req,res)=>{
+    if(!req.session.admin){//here we are checking if then req.session.admin object is existing  even though the req.session bject might exist
+      return res.send("Login first admin");//if the req.session.admin object was not found  this block of code wll be executed
+    }
+        const AdminID=req.session.admin.AdminID;//here we are assigning the adminID variable by invoking the adminID property using the req.session.admin object
+         const sql="SELECT * FROM admins WHERE AdminID=?";
+         db.query(sql,[AdminID], (err,results)=>{
+        if(err){
+
+            return res.send("Error "+err);
+        }
+        if(results.length==0){
+            return res.send("Admin not found")
+
+            
+        }
+        const admin=results[0];
+        res.json(admin);//express c0nverts the admin object into json and sends it to the browser for displaying
+
+         });
+
+});
+
+//router for the reports used to submit reports
 
 router.post("/submittingReports",async(req,res)=>{
 const{MistreatmentType,Description,OccurrenceDate,CompanyName,Status}=req.body;
@@ -282,18 +246,14 @@ db.query(sql,[UserID], (err,results)=>{
 
 });
 
-//View eveidence button Route//copied
+//View evidence button Route//copied
 router.get("/admin/evidence/:reportID",(req,res)=>{
 
-    const reportID =
-    req.params.reportID;
+    const reportID = req.params.reportID;
+    
 
-    const sql = `
-        SELECT *
-        FROM evidence
-        WHERE ReportID = ?
-    `;
-
+    const sql = `SELECT * FROM evidence WHERE ReportID = ? `;
+        
     db.query(sql,[reportID],(err,results)=>{
 
         if(err){
@@ -304,8 +264,6 @@ router.get("/admin/evidence/:reportID",(req,res)=>{
     });
 
 });
-
-
 
 
 //logging out a user
@@ -330,7 +288,7 @@ router.get("/admin/reports", (req, res) => {
     }
 
     const sql = `
-        SELECT
+            SELECT
             reports.ReportID,
             reports.MistreatmentType,
             reports.Description,
@@ -350,7 +308,7 @@ router.get("/admin/reports", (req, res) => {
     `;
 
     db.query(sql, (err, results) => {
-
+                                     
         if (err) {
             console.log(err);
             return res.status(500).json(err);

@@ -22,13 +22,11 @@
 
 </div>
 
-
 <nav class="navbar " id="navbar"> 
 <ul>
 
     
 <li><a href="index.html">Home</a></li> 
-
 
 
 
@@ -38,8 +36,29 @@
 </div>
 </div> 
 
-<div class="heroimage">
+<!--<div class="heroimage">
 <img src="images/adminheroImage.png">
+</div>-->
+
+<div class="aboutContainer" id="aboutPage"><!--About page id-->
+
+    <div>
+          <img src="images/blank-profile-picture-973460_1280.png">
+           <!--<img  src="${user.1780948012457-9}">-->
+        
+    </div>
+
+    <div class="aboutContent">
+        <div class="head">
+
+</div>
+    <h2> Welcome <span id="adminName">Username</span> </h2> 
+     <p>Admin ID:Admin <span id="adminID"></span></p>
+     <p>Email: <span id="adminEmail"></span></p>
+     <p>As an administrator, you play a vital role in fostering a safe, respectful, and accountable workplace. Approach every report with impartiality, integrity, and professionalism, ensuring that each case is reviewed fairly and without bias. Remember that behind every report is an employee seeking to be heard and understood. By carefully evaluating the facts, maintaining confidentiality, and treating all individuals with respect, you help build trust in the reporting process and contribute to a workplace culture where every voice matters.
+</p>
+   
+    </div>
 </div>
   
 <div class="imagecollage2">
@@ -79,15 +98,12 @@
 
 </div>
 
-
 </div>
 
 <h1>List of Reports</h1>
 
-
 <div class="tableContainer">
 <table>
-
 
   <tr>
 
@@ -104,11 +120,8 @@
   </tr>
 <tbody id="reportTableBody">
 
-
 </tbody>
 
-
-   
 </table>
 </div>
 
@@ -125,8 +138,6 @@
      <li>Discrimination</li><br>
      </ul>
    
-    
-
     </div>
 </div>
 
@@ -146,10 +157,6 @@
 
 </div>
 
-
-
-
-
 </div>
 
 /<!--chat--><div id="evidenceModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:black; color:white; overflow:auto; padding:20px;">
@@ -163,13 +170,40 @@
 </div>
 
 <script>
+ 
+//code for About us section
+document.addEventListener("DOMContentLoaded", function(){
+
+fetch("/adminDetails")
+
+.then(response=>{
+
+if(!response.ok){
+
+   return response.status(401).send("unathorised");
+}
+return response.json();
+
+})
+
+.then(admin=>{
+    document.getElementById("adminName").textContent=admin.Name;
+    document.getElementById("adminID").textContent=admin.AdminID;
+    document.getElementById("adminEmail").textContent=admin.Email;
+
+})
+.catch(err =>console.error("Could not fetch Admin data from the database"));
+
+});
+
+//end code for About us section
+
 //Creating table rows dynamcally route//copied
 fetch("/admin/reports")
 .then(res => res.json())
 .then(data => {
 
     const tableBody =    document.getElementById("reportTableBody");
-
 
     data.forEach(report => {
 
@@ -194,61 +228,53 @@ fetch("/admin/reports")
     <td>${report.Description}</td>
 
     <td>
-        <button onclick="updateStatus(${report.ReportID})">
-            Update
-        </button>
+        <button onclick="updateStatus(${report.ReportID})">Update
+            
+        
     </td>
 
     <td>
-        <button onclick="viewEvidence(${report.ReportID})">
-            View Evidence
-        </button>
+        <button onclick="viewEvidence(${report.ReportID})">View Evidence</button>
+             
     </td>
 </tr>
         `;
     });
-
-  
 
 });
 
   //chat
     async function updateStatus(reportID){
 
-    const status = document.getElementById(
-        `status-${reportID}`
-    ).value;
-
+    const status = document.getElementById(`status-${reportID}`).value;
+   
     try{
 
-        const response = await fetch(
-            `/admin/report/${reportID}/status`,
-            {
+        const response = await fetch( `/admin/report/${reportID}/status`,  {
+          
                 method: "PUT",
-
-                headers:{
-                    "Content-Type":"application/json"
+                headers:{ "Content-Type" : "application/json"
+                   
                 },
 
-                body: JSON.stringify({
-                    Status: status
-                })
+                body: JSON.stringify({  Status: status })
+                    
             }
         );
 
-        const message =
-        await response.text();
+        const message =  await response.text();
+       
 
         alert(message);
 
-    }catch(error){
+    }
+    catch(error){
 
         console.error(error);
 
         alert("Failed to update status");
     }
 }
-
 
 //chat 
 async function viewEvidence(reportID) {
@@ -310,11 +336,7 @@ async function loadStats(){
 
 loadStats();
 
-
-
-
 </script>
-
 
 </body>
 </html>

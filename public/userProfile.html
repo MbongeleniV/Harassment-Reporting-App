@@ -30,11 +30,17 @@
 <!--<li id="logOutBtn"><a>Logout</a></li>-->
     <li><a href="index.html">Home</a></li>
 
+    
+
 </ul>
 </nav> 
 
 </div>
 </div> 
+
+<!--<div class="heroimage">
+<img src="images/userDashboardImage.png">
+</div>-->
 
 
 <div class="aboutContainer" id="aboutPage"><!--About page id-->
@@ -48,7 +54,7 @@
 
     <div class="aboutContent">
         <div class="head">
-<h1 id="userName">Username</h1>
+<h1>Welcome <span id="userName">Username</span></h1>
 </div>
      <p>Gender: <span id="userGender"></span></p>
      <p>Email: <span id="userEmail"></span></p>
@@ -85,15 +91,8 @@
 
     </div>
 
-
-    <footer>
-Crafted By Sibande Tech Systems<br>
-&copyCopyrights Reserved (2026)<br><br>
-Created for WorK Safe Desk
-
-</footer>
-
 <script>
+
 document.addEventListener("DOMContentLoaded", function(){
 //fetching the data from the get route
 fetch('/user-data')

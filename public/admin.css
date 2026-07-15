@@ -25,6 +25,7 @@
           border-radius: 5px;
           margin-right: 10px;
 }
+
 .navbar a:hover{ color: rgba(233, 240, 233, 0.467);
 
 }
@@ -74,6 +75,24 @@
     }
 }
 
+.aboutContainer{ display: flex;
+                background-color: rgb(131, 163, 198);
+                width: 900px;
+                justify-self: center;
+                margin-top: 50px;
+                margin-bottom: 50px;
+                width:90%;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                color:white
+
+}
+.aboutContainer img{width:70%;
+                    width:130px;
+                    border-radius: 100%;
+                    filter:drop-shadow(1px 2px 4px rgb(105, 107, 114));
+
+}
+
 
  h2{color:rgb(245, 245, 247);
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -96,14 +115,11 @@
                 border-radius: 7px;
                 padding-top: 100px;
                  padding-bottom: 100px;
-            
-                            
+                                       
 }
 
-
 .image2 h1{font-size:24px;
-          
-       
+                
 }
 .image2 {display: block;
         border:1px solid rgba(232, 229, 235, 0.651);
@@ -115,6 +131,13 @@
         box-shadow: 2px 2px 3px;
     
 }
+.image:nth-child(1){ background-color: rgba(108, 100, 134, 0.37);
+
+}
+.image:nth-child(2){ background-color: rgba(128, 96, 236, 0.577);
+
+}
+
 
 
 .image2 p{font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -140,10 +163,7 @@ table{
      width:90%;
      border-collapse:collapse;
      border:1px solid rgb(90, 135, 164);
-   
-     
-
-    
+      
 
 }
 .tableContainer{width:95%;
@@ -151,9 +171,6 @@ table{
                 overflow-x: auto;
                 /*-webkit-overflow-scrolling: touch;*/
 }
-
-
-
 
 table button{color:rgba(1, 1, 1, 0.952);
             background-color: rgba(154, 138, 176, 0.693);
@@ -171,7 +188,6 @@ table button{color:rgba(1, 1, 1, 0.952);
 table button:hover{ transform:scale(1.1);
                     cursor:pointer;
                     border:2px solid white;
-
 
 }
 table button:active{  transform:scale(1.1);
@@ -223,8 +239,7 @@ h1{text-align: center;
                 margin-top: 50px;
                 padding-top: 50px;
                 margin-bottom: 50px;
-            
-             
+                        
 }
 
 .card{margin: 0px;
@@ -260,7 +275,7 @@ h1{text-align: center;
               font-family:Verdana, Geneva, Tahoma, sans-serif;
               padding:16px;
     
-              
+             
 }
 
 .card-content h3{margin: 0px;
