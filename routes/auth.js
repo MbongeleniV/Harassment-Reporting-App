@@ -60,7 +60,7 @@ router.post("/reportssubmission",upload.array("evidenceFiles", 10),(req, res) =>
 router.post("/signup", async (req,res)=>{
       console.log(req.body);
 const {Title,Gender,Name,Surname,Email,CompanyName,HearAboutUs,Password}=req.body;
-const hashedPassword=await bcrypt.hash(Password, 10);
+const hashedPassword= await bcrypt.hash(Password, 10);
 const sql="INSERT INTO users (Title,Gender,Name,Surname,Email,CompanyName,HearAboutUs,Password) VALUES(?,?,?,?,?,?,?,?)"
 db.query(sql,[Title,Gender,Name,Surname,Email,CompanyName,HearAboutUs,hashedPassword]  ,(err,result)=>{
 
@@ -200,7 +200,11 @@ router.get("/adminDetails",(req,res)=>{
 
 //router for the reports used to submit reports
 
-router.post("/submittingReports",async(req,res)=>{
+
+
+
+
+/*router.post("/submittingReports",async(req,res)=>{
 const{MistreatmentType,Description,OccurrenceDate,CompanyName,Status}=req.body;
  const UserID = req.session.user.UserID;
 const sql="INSERT INTO reports(UserId,MistreatmentType,Description,OccurrenceDate,CompanyName,Status) VALUES(?,?,?,?,?,?)";
@@ -216,6 +220,58 @@ else{
 }
 
 });
+
+});*/
+
+router.post("/submittingReports", (req, res) => {
+
+    const {
+        MistreatmentType,
+        Description,
+        OccurrenceDate,
+        CompanyName,
+        Status
+    } = req.body;
+
+    const UserID = req.session.user.UserID;
+    const Name = req.session.user.Name;
+    const Email = req.session.user.Email;
+
+    const sql = `
+    INSERT INTO reports
+    (UserID, MistreatmentType, Description, OccurrenceDate, CompanyName, Status)
+    VALUES (?, ?, ?, ?, ?, ?)
+    `;
+
+    db.query(
+        sql,
+        [UserID, MistreatmentType, Description, OccurrenceDate, CompanyName, Status],
+        async (err, result) => {
+
+            if (err) {
+                return res.send("Error: " + err);
+            }
+
+            try {
+
+                await sendConfirmationEmail(
+                    Email,
+                    Name,
+                    result.insertId
+                );
+
+                res.send("Your report has been submitted successfully.");
+
+            } catch (emailError) {
+
+                console.log(emailError);
+
+                res.send("Report submitted successfully, but the confirmation email failed.");
+
+            }
+
+        }
+    );
 
 });
 

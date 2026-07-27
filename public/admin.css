@@ -131,10 +131,16 @@
         box-shadow: 2px 2px 3px;
     
 }
-.image:nth-child(1){ background-color: rgba(108, 100, 134, 0.37);
+.image2:nth-child(1){ background-color: rgba(128, 110, 186, 0.748);
 
 }
-.image:nth-child(2){ background-color: rgba(128, 96, 236, 0.577);
+.image2:nth-child(2){ background-color: rgba(128, 96, 236, 0.577);
+
+}
+.image2:nth-child(3){ background-color: rgba(96, 108, 236, 0.756);
+
+}
+.image2:nth-child(4){ background-color: rgba(96, 150, 236, 0.922);
 
 }
 

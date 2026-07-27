@@ -200,6 +200,51 @@ return response.json();
 
 //Creating table rows dynamcally route//copied
 fetch("/admin/reports")
+.then(res=>res.json())
+.then(data=>{
+
+    const tablebody=document.getElementById("reportTableBody");
+
+    data.forEach(report=>{
+
+tablebody.innerHTML+=`
+ <tr>
+<td>R${report.ReportID}</td>
+<td>${report.Name} ${report.Surname}</td>
+<td>${report.Gender}</td>
+<td>${report.MistreatmentType}</td>
+<td>${report.DateSubmitted}</td>
+
+<td>
+<select id="status-${report.ReportID}">
+ <option value="Submitted" ${report.Status==="Submitted"} ? "selected" :"">Submitted</option>
+ <option value="In progress" ${report.Status==="In Progress"}? "selected": "">In progress</option>
+ <option value="Resolved" ${report.Status==="Resolved"? "selected":""}>Resolved</option>
+
+</select>
+</td>
+
+<td>${report.Description}</td>
+<td> <button onclick="updateStatus(${report.ReportID})">Update </button></td>
+<td> <button onclick="viewEvidence(${report.ReportID}")>View Evidence</button></td>
+
+</tr>
+
+
+
+`;
+
+
+
+    });
+
+
+});
+
+
+
+
+/*fetch("/admin/reports")
 .then(res => res.json())
 .then(data => {
 
@@ -241,7 +286,7 @@ fetch("/admin/reports")
         `;
     });
 
-});
+});*/
 
   //chat
     async function updateStatus(reportID){
@@ -335,6 +380,9 @@ async function loadStats(){
 }
 
 loadStats();
+
+
+
 
 </script>
 
